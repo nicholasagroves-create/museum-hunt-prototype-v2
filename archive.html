@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive</title>
+  <link rel="stylesheet" href="css/archive.css" />
+</head>
+<body>
+  <div id="archive-intro" class="archive-intro">
+    <div class="archive-intro__overlay"></div>
+    <div class="archive-intro__text" id="archiveIntroText"></div>
+  </div>
+
+  <main id="archive-screen" class="archive-screen hidden">
+    <div class="archive-screen__bg"></div>
+    <div class="archive-screen__veil"></div>
+
+    <header class="archive-header">
+      <div class="archive-header__left">MUSEUM ARCHIVE NETWORK</div>
+      <div class="archive-header__right">RECLAIMED RECORD INDEX</div>
+    </header>
+
+    <section class="archive-layout">
+      <aside class="archive-index" id="archiveIndex">
+        <div class="archive-index__title">Recovered Records</div>
+      </aside>
+
+      <section class="archive-viewer">
+        <div class="archive-viewer__panel">
+          <div class="archive-viewer__label" id="viewerLabel">Active Dossier</div>
+          <div class="archive-viewer__body" id="viewerBody">
+            Archive access restored.
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-content modal-content--frame" id="modalContent">
+    <button class="modal-close-btn" onclick="closeModal()">×</button>
+    <iframe id="modalFrame" class="modal-frame" src=""></iframe>
+  </div>
+</div>
+
+  <script src="js/archive.js"></script>
+</body>
+</html>
