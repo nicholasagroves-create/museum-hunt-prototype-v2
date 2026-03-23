@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Training Mechanism 00</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="p00-app">
+    <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Mute ambient audio">
+      🔊
+    </button>
+
+    <!-- SCREEN 1: PRE-INCIDENT LOG -->
+    <section id="screen-prelog" class="screen screen--active">
+      <div class="journal-card">
+        <div class="journal-surface">
+          <div class="journal-content">
+            <div class="journal-kicker">Recovered Journal Fragment</div>
+            <h1 class="journal-title">Pre-Incident Log</h1>
+
+            <div class="journal-body">
+              <p>
+                Orientation procedures were established before entering the restricted archive.
+                Mercer insisted that every researcher carry a field credential bearing the proper classification.
+              </p>
+
+              <p>
+                He claimed the mechanisms would respond only to those who could identify their assigned artifact status without hesitation.
+              </p>
+
+              <p>
+                The first lock was described as simple by design. A test. A way of proving that the researcher understood where to look before attempting anything deeper in the collection.
+              </p>
+            </div>
+
+            <div class="journal-actions">
+              <button id="play-prelog-audio" class="secondary-button" type="button">
+                Play Recording
+              </button>
+
+              <button id="to-puzzle-button" class="primary-button" type="button">
+                Continue to Mechanism
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: PUZZLE -->
+    <section id="screen-puzzle" class="screen">
+      <div class="puzzle-shell">
+        <div class="puzzle-header">
+          <div class="puzzle-kicker">Training Mechanism 00</div>
+          <h2 class="puzzle-title">Archive Credential Cylinder</h2>
+          <p class="puzzle-instruction">
+            Set the archive cylinder to the classification printed on your badge.
+          </p>
+        </div>
+
+<div class="cylinder-stage">
+  <div class="cylinder-wrapper">
+    <button
+      id="badge-reference-button"
+      class="badge-reference-button"
+      type="button"
+      aria-label="Open badge reference"
+    >
+      <img
+        src="graphics/badge-clip.png"
+        alt="Reference badge clipped to the puzzle board"
+        class="badge-reference-image"
+      />
+    </button>
+
+    <img
+      src="graphics/cypher-cylinder.png"
+      alt="Archive cipher cylinder"
+      class="cylinder-image"
+    />
+
+    <div id="wheel-layer" class="wheel-layer" aria-label="Cipher wheels"></div>
+  </div>
+</div>
+
+        <div id="solve-message" class="solve-message" aria-live="polite">
+          Tap each wheel to rotate it.
+        </div>
+
+        <button id="to-postlog-button" class="primary-button hidden" type="button">
+          View Restored Log
+        </button>
+      </div>
+    </section>
+
+<!-- SCREEN 3: POST-INCIDENT LOG -->
+<section id="screen-postlog" class="screen">
+  <div class="postlog-card">
+    <div class="postlog-overlay">
+      <div class="postlog-title">Mercer Audio Log</div>
+      <div class="postlog-subtitle">Recovered Transcript — Post-Mechanism Record</div>
+
+      <div class="postlog-controls">
+        <button id="play-postlog-audio" class="postlog-audio-button" type="button">
+          Play Recording
+        </button>
+        <div class="postlog-status">Recovered by Archive Curation Division</div>
+      </div>
+
+      <div class="postlog-transcript-wrap">
+        <div class="postlog-transcript">
+          <p>If you're hearing this, then you did it right.</p>
+
+          <p>The first mechanism isn’t meant to stop you. It’s meant to correct you.</p>
+
+          <p>Most people try to solve it.</p>
+
+          <p>You didn’t.</p>
+
+          <p>You observed.</p>
+
+          <p>That’s the difference.</p>
+
+          <p>Everything in this system follows the same rule.</p>
+
+          <p>Nothing is hidden.</p>
+
+          <p>But almost everything is easy to misread.</p>
+
+          <p>What you just activated wasn’t a lock.</p>
+
+          <p>It was a handshake.</p>
+
+          <p>The system knows you're paying attention now.</p>
+
+          <p>That means it will start responding differently.</p>
+
+          <p>You’ll begin to see more of it.</p>
+
+          <p>The archive.</p>
+
+          <p>The structure behind the exhibits.</p>
+
+          <p>The connections.</p>
+
+          <p>We’ve been mapping it as we go—piece by piece.</p>
+
+          <p>There’s a larger framework here. A network of mechanisms tied to locations throughout the museum.</p>
+
+          <p>Each one restores a fragment of the expedition record.</p>
+
+          <p>Together… they form something bigger.</p>
+
+          <p>We don’t have all of it yet.</p>
+
+          <p>And I’m no longer sure we should.</p>
+
+          <p>If you're continuing, you need to understand this:</p>
+
+          <p>The system is not guiding you.</p>
+
+          <p>It’s evaluating you.</p>
+
+          <p>Every mechanism is a question.</p>
+
+          <p>Every solution is a response.</p>
+
+          <p>And the more you answer…</p>
+
+          <p>the deeper it lets you go.</p>
+
+          <p>You should be seeing the archive now.</p>
+
+          <p>If the system accepted your input, it will have opened the first layer.</p>
+
+          <p>Start there.</p>
+
+          <p>Move carefully.</p>
+
+          <p>Pay attention to everything.</p>
+
+          <p>And don’t assume the system wants to be completed.</p>
+
+          <p>—Mercer</p>
+        </div>
+      </div>
+
+      <div class="postlog-footer">
+        <div class="postlog-footer-note">Recovered by Archive Curation Division</div>
+        <button id="transmit-button" class="postlog-continue-button" type="button">
+          Transmit Recovery
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+<div id="badge-modal" class="badge-modal hidden" aria-hidden="true">
+  <div class="badge-modal-backdrop"></div>
+
+  <div class="badge-modal-panel" role="dialog" aria-modal="true" aria-label="Badge reference">
+    <div class="badge-modal-toolbar">
+      <button id="badge-zoom-in" class="badge-tool-button" type="button">Zoom In</button>
+      <button id="badge-zoom-out" class="badge-tool-button" type="button">Zoom Out</button>
+      <button id="badge-zoom-reset" class="badge-tool-button" type="button">Reset</button>
+      <button id="badge-close" class="badge-tool-button badge-tool-button--close" type="button">Close</button>
+    </div>
+
+    <div id="badge-viewport" class="badge-viewport">
+      <img
+        id="badge-full-image"
+        src="graphics/sporcle-badge.jpg"
+        alt="Full researcher badge reference"
+        class="badge-full-image"
+      />
+    </div>
+  </div>
+</div>
+
+  <audio id="ambient-audio" src="audio/ambient-thinking.mp3" preload="auto" loop></audio>
+  <audio id="click-audio" src="audio/cylinder-click.wav" preload="auto"></audio>
+  <audio id="postlog-audio" src="audio/mercer-tutorial-post-log.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

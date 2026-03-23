@@ -1,0 +1,577 @@
+:root {
+  --gold-bright: #f2d8a7;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #2a1b10, #000);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ========================= */
+/* CORE APP LAYOUT */
+/* ========================= */
+
+.p00-app {
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ========================= */
+/* GLOBAL SCREEN WRAPPER */
+/* ========================= */
+
+.screen {
+  width: 100%;
+  max-width: 620px;
+  height: 92vh;
+  display: none;
+  animation: screenFade 0.25s ease;
+}
+
+.screen--active {
+  display: block;
+}
+
+#screen-postlog {
+  max-width: 790px;
+  height: 97vh;
+}
+
+/* ========================= */
+/* AUDIO TOGGLE */
+/* ========================= */
+
+.audio-toggle {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #c5a56a;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ========================= */
+/* JOURNAL SCREENS */
+/* ========================= */
+
+.journal-card {
+  width: 100%;
+  height: 100%;
+}
+
+.journal-surface {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(213, 177, 122, 0.16);
+  background:
+    linear-gradient(rgba(15, 10, 7, 0.9), rgba(13, 9, 7, 0.95)),
+    radial-gradient(circle at top, rgba(177, 110, 43, 0.1), transparent 35%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-kicker {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #a88c5a;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.journal-title {
+  margin: 0 0 14px;
+  font-size: 28px;
+  line-height: 1.05;
+  color: var(--gold-bright);
+}
+
+.journal-body {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #ead9b6;
+  padding-right: 6px;
+}
+
+.journal-body p {
+  margin: 0 0 1.15em 0;
+}
+
+.journal-emphasis {
+  font-weight: 700;
+  color: #f3dfb6;
+}
+
+.journal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.primary-button,
+.secondary-button {
+  appearance: none;
+  border: 1px solid #c5a56a;
+  background: transparent;
+  color: #e6d2a2;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.primary-button.hidden {
+  display: none;
+}
+
+/* ========================= */
+/* PUZZLE SHELL */
+/* ========================= */
+
+.puzzle-shell {
+  width: 100%;
+  height: 100%;
+  padding: 12px 10px 10px;
+  border: 1px solid rgba(213, 177, 122, 0.16);
+  background:
+    linear-gradient(rgba(15, 10, 7, 0.9), rgba(13, 9, 7, 0.95)),
+    radial-gradient(circle at top, rgba(177, 110, 43, 0.1), transparent 35%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.puzzle-header {
+  text-align: center;
+}
+
+.puzzle-kicker {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #a88c5a;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.puzzle-title {
+  margin: 0 0 6px;
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--gold-bright);
+}
+
+.puzzle-instruction {
+  margin: 0 auto;
+  max-width: 460px;
+  font-size: 15px;
+  line-height: 1.38;
+  color: #ead9b6;
+}
+
+/* ========================= */
+/* CYLINDER STAGE */
+/* ========================= */
+
+.cylinder-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.cylinder-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cylinder-image {
+  width: 100%;
+  display: block;
+}
+
+/* ========================= */
+/* WHEELS */
+/* ========================= */
+
+.wheel-layer {
+  position: absolute;
+  left: 24.7%;
+  top: 38.8%;
+  width: 49%;
+  height: 16%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2%;
+  pointer-events: auto;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.wheel-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+.wheel-letter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #11100e;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 1px rgba(0, 0, 0, 0.14);
+  user-select: none;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.01em;
+  transform: translateY(18%);
+}
+
+/* ========================= */
+/* MESSAGE */
+/* ========================= */
+
+.solve-message {
+  min-height: 18px;
+  text-align: center;
+  color: #d5c09a;
+  font-size: 11px;
+  line-height: 1.3;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.04em;
+}
+
+.solve-message--success {
+  color: #f2d8a7;
+}
+
+/* ========================= */
+/* SOLVED STATE */
+/* ========================= */
+
+.cylinder-wrapper--solved {
+  filter: drop-shadow(0 0 8px rgba(242, 216, 167, 0.22));
+}
+
+@media (max-width: 900px) {
+  .screen {
+    max-width: 560px;
+    height: 90vh;
+  }
+
+  .journal-title,
+  .puzzle-title {
+    font-size: 24px;
+  }
+
+  .journal-body,
+  .puzzle-instruction {
+    font-size: 14px;
+  }
+
+  .wheel-letter {
+    font-size: 24px;
+  }
+}
+
+/* ========================= */
+/* BADGE REFERENCE */
+/* ========================= */
+
+.badge-reference-button {
+  position: absolute;
+  top: 4%;
+  right: 3%;
+  width: 34%;
+  max-width: 180px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.badge-reference-image {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* ========================= */
+/* BADGE MODAL */
+/* ========================= */
+
+.badge-modal.hidden {
+  display: none;
+}
+
+.badge-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.badge-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.badge-modal-panel {
+  position: absolute;
+  inset: 4%;
+  background: #120d09;
+  border: 1px solid rgba(213, 177, 122, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-modal-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(213, 177, 122, 0.16);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.badge-tool-button {
+  appearance: none;
+  border: 1px solid #c5a56a;
+  background: transparent;
+  color: #e6d2a2;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-tool-button--close {
+  margin-left: auto;
+}
+
+.badge-viewport {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  cursor: grab;
+  background: #0c0907;
+}
+
+.badge-viewport:active {
+  cursor: grabbing;
+}
+
+.badge-full-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: none;
+  max-height: none;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+/* ========================= */
+/* PARCHMENT POSTLOG */
+/* ========================= */
+
+.postlog-card {
+  width: 100%;
+  height: 100%;
+  background: url("graphics/journal-page.png") center / contain no-repeat;
+  position: relative;
+}
+
+.postlog-overlay {
+  position: absolute;
+  inset: 0;
+  color: #3f2f22;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.postlog-title {
+  position: absolute;
+  top: 7.2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  text-align: center;
+  font-size: clamp(15px, 1.35vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #564230;
+}
+
+.postlog-subtitle {
+  position: absolute;
+  top: 10.4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(8px, 0.7vw, 11px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #78614c;
+}
+
+.postlog-controls {
+  position: absolute;
+  top: 14.2%;
+  left: 18%;
+  width: 64%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.postlog-audio-button {
+  appearance: none;
+  border: 1px solid rgba(88, 68, 50, 0.45);
+  background: rgba(236, 222, 200, 0.35);
+  color: #4b3827;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.postlog-status {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #78614c;
+}
+
+.postlog-transcript-wrap {
+  position: absolute;
+  top: 18.7%;
+  left: 18%;
+  width: 64%;
+  height: 61%;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.postlog-transcript-wrap::-webkit-scrollbar {
+  width: 8px;
+}
+
+.postlog-transcript-wrap::-webkit-scrollbar-thumb {
+  background: rgba(86, 66, 48, 0.25);
+}
+
+.postlog-transcript {
+  font-size: clamp(11px, 0.95vw, 14px);
+  line-height: 1.58;
+  color: #3f2f22;
+}
+
+.postlog-transcript p {
+  margin: 0 0 1.15em 0;
+}
+
+.postlog-footer {
+  position: absolute;
+  left: 18%;
+  bottom: 8.6%;
+  width: 64%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postlog-footer-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(6.6px, 0.5vw, 8.5px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7d654f;
+}
+
+.postlog-continue-button {
+  appearance: none;
+  border: 1px solid rgba(88, 68, 50, 0.45);
+  background: rgba(236, 222, 200, 0.28);
+  color: #4b3827;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.postlog-continue-button:hover,
+.postlog-audio-button:hover {
+  background: rgba(236, 222, 200, 0.45);
+}
+
+@keyframes screenFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
