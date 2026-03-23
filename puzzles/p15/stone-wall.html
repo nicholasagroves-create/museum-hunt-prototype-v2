@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Wall Mechanism</title>
+  <link rel="stylesheet" href="stone-wall.css" />
+</head>
+<body>
+  <main class="stonewall-app">
+    <section class="stonewall-shell">
+      <div class="stonewall-header">
+        <div class="stonewall-kicker">Recovered Mechanism</div>
+        <h1 class="stonewall-title">Stone Wall Sequence</h1>
+        <p class="stonewall-instruction">
+          Observe the symbols. Enter the sequence correctly to restore the record.
+        </p>
+      </div>
+
+      <div class="stonewall-board">
+        <div class="stonewall-image-wrap">
+          <img
+            src="media/rock-wall.jpg"
+            alt="Stone wall background"
+            class="stonewall-bg"
+          />
+
+          <img
+            src="media/puzzle-wall.png"
+            alt="Stone wall puzzle"
+            class="stonewall-overlay"
+          />
+
+          <button class="stone-btn stone-btn--leaf" data-symbol="leaf" aria-label="Leaf symbol"></button>
+          <button class="stone-btn stone-btn--water" data-symbol="water" aria-label="Water symbol"></button>
+          <button class="stone-btn stone-btn--fire" data-symbol="fire" aria-label="Fire symbol"></button>
+          <button class="stone-btn stone-btn--moon" data-symbol="moon" aria-label="Moon symbol"></button>
+          <button class="stone-btn stone-btn--sun" data-symbol="sun" aria-label="Sun symbol"></button>
+          <button class="stone-btn stone-btn--back" id="back-button" aria-label="Return to journal"></button>
+        </div>
+
+<img
+  src="media/mineral-room.jpg"
+  alt="Reference image of mineral room"
+  class="stonewall-reference"
+  id="reference-image"
+/>
+
+<button
+  class="stonewall-reference-hitbox"
+  id="reference-hitbox"
+  aria-label="View reference image"
+></button>
+
+      </div>
+
+      <div class="stonewall-status">
+        <div id="sequence-readout" class="sequence-readout">Sequence: —</div>
+        <div id="status-message" class="status-message">Awaiting input.</div>
+      </div>
+
+      <div class="stonewall-actions">
+        <button id="reset-button" class="secondary-button" type="button">Reset Sequence</button>
+        <button id="continue-button" class="primary-button hidden" type="button">
+          View Restored Log
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <audio id="click-audio" src="media/button-click.wav" preload="auto"></audio>
+  <audio id="success-audio" src="media/success-chime.wav" preload="auto"></audio>
+  <audio id="wrong-audio" src="media/wrong-buzz.wav" preload="auto"></audio>
+
+<div id="reference-modal" class="reference-modal hidden">
+  <div class="reference-backdrop" id="reference-backdrop"></div>
+  <div class="reference-content">
+    <img src="media/mineral-room.jpg" alt="Reference full view" />
+  </div>
+</div>
+
+  <script src="stone-wall.js"></script>
+</body>
+</html>

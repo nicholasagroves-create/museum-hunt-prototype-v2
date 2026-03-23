@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Wall Restored Log</title>
+  <link rel="stylesheet" href="stone-wall.css" />
+</head>
+<body>
+  <main class="stonewall-app stonewall-app--postlog">
+    <section class="stonewall-shell stonewall-shell--postlog">
+      <div class="postlog-stage">
+        <div class="postlog-image-wrap">
+          <img
+            src="media/field-log-answer.png"
+            alt="Restored field log solution"
+            class="postlog-image"
+          />
+
+          <button
+            id="postlog-audio-button"
+            class="postlog-hotspot postlog-hotspot--audio"
+            type="button"
+            aria-label="Play restored log audio"
+          ></button>
+
+          <button
+            id="postlog-transmit-button"
+            class="postlog-hotspot postlog-hotspot--transmit"
+            type="button"
+            aria-label="Transmit recovery"
+          ></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="postlog-audio" src="media/mercer-field-log-solution.wav" preload="auto"></audio>
+  <script src="stone-wall-postlog.js"></script>
+
+<button class="return-archive-btn" onclick="returnToArchive()">
+  Return to Archive
+</button>
+
+<script>
+function returnToArchive() {
+  window.location.href = "../../archive.html?unlock=15";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+:root {
+  --text: #e8dec7;
+  --muted: rgba(232, 222, 199, 0.72);
+  --line: rgba(232, 222, 199, 0.16);
+  --panel: rgba(7, 9, 12, 0.72);
+  --panel-strong: rgba(7, 9, 12, 0.86);
+  --success: #91e6a4;
+  --error: #ff8f8f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #000;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: block;
+  padding: 24px;
+}
+
+.stonewall-app {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.stonewall-shell {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 28px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.stonewall-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.stonewall-kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.stonewall-title {
+  margin: 0 0 12px;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.stonewall-instruction {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.stonewall-board {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.stonewall-image-wrap {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+}
+
+.stonewall-bg,
+.stonewall-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stonewall-overlay {
+  z-index: 2;
+}
+
+.stone-btn {
+  position: absolute;
+  z-index: 3;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease;
+}
+
+.stone-btn::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.stone-btn.pressed {
+  transform: scale(0.94);
+  filter: brightness(1.15);
+}
+
+/* Tune these hitboxes if needed */
+.stone-btn--leaf {
+  left: 43%;
+  top: 12%;
+  width: 16%;
+  height: 12%;
+}
+
+.stone-btn--water {
+  left: 43%;
+  top: 25%;
+  width: 16%;
+  height: 12%;
+}
+
+.stone-btn--fire {
+  left: 43%;
+  top: 39%;
+  width: 16%;
+  height: 12%;
+}
+
+.stone-btn--moon {
+  left: 43%;
+  top: 54%;
+  width: 16%;
+  height: 12%;
+}
+
+.stone-btn--sun {
+  left: 43%;
+  top: 68%;
+  width: 16%;
+  height: 12%;
+}
+
+.stone-btn--back {
+  left: 9%;
+  top: 79%;
+  width: 12%;
+  height: 10%;
+}
+
+.stonewall-status {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  margin-bottom: 22px;
+}
+
+.sequence-readout,
+.status-message {
+  width: min(100%, 760px);
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.sequence-readout {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-message {
+  color: var(--muted);
+}
+
+.status-message.is-success {
+  color: var(--success);
+}
+
+.status-message.is-error {
+  color: var(--error);
+}
+
+.stonewall-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+  min-width: 180px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: rgba(232, 222, 199, 0.12);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 12px;
+  }
+
+  .stonewall-shell {
+    padding: 16px;
+  }
+
+  .stonewall-title {
+    font-size: 28px;
+  }
+
+  .stonewall-instruction {
+    font-size: 14px;
+  }
+}
+
+/* PRELOG */
+
+.stonewall-app--prelog {
+  max-width: 900px;
+}
+
+.stonewall-shell--prelog {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.prelog-stage {
+  display: flex;
+  justify-content: center;
+}
+
+.prelog-image-wrap {
+  position: relative;
+  width: min(100%, 620px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+}
+
+.prelog-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prelog-hotspot {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+/* Toggle these on temporarily for alignment */
+/*
+.prelog-hotspot {
+}
+*/
+
+.prelog-hotspot--audio {
+  right: 10%;
+  top: 61%;
+  width: 22%;
+  height: 18%;
+}
+
+.prelog-hotspot--begin {
+  left: 24%;
+  bottom: 9%;
+  width: 52%;
+  height: 11%;
+}
+
+/* POSTLOG */
+
+.stonewall-app--postlog {
+  max-width: 900px;
+}
+
+.stonewall-shell--postlog {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.postlog-stage {
+  display: flex;
+  justify-content: center;
+}
+
+.postlog-image-wrap {
+  position: relative;
+  width: min(100%, 620px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+}
+
+.postlog-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.postlog-hotspot {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+/* Toggle on temporarily for alignment */
+/*
+.postlog-hotspot {
+  background: rgba(0, 128, 255, 0.2);
+}
+*/
+
+.postlog-hotspot--audio {
+  right: 10%;
+  top: 61%;
+  width: 22%;
+  height: 18%;
+}
+
+.postlog-hotspot--transmit {
+  left: 24%;
+  bottom: 9%;
+  width: 52%;
+  height: 11%;
+}
+
+.stone-btn--leaf.pressed::after {
+  opacity: 1;
+  transform: scale(1.5);
+  background: radial-gradient(circle, rgba(120,255,120,0.85) 0%, rgba(80,255,80,0.35) 35%, rgba(80,255,80,0) 65%);
+}
+
+.stone-btn--water.pressed::after {
+  opacity: 1;
+  transform: scale(1.5);
+  background: radial-gradient(circle, rgba(160,240,255,0.85) 0%, rgba(80,200,255,0.35) 35%, rgba(80,200,255,0) 65%);
+}
+
+.stone-btn--fire.pressed::after {
+  opacity: 1;
+  transform: scale(1.5);
+  background: radial-gradient(circle, rgba(255,210,120,0.9) 0%, rgba(255,160,50,0.38) 35%, rgba(255,160,50,0) 65%);
+}
+
+.stone-btn--moon.pressed::after {
+  opacity: 1;
+  transform: scale(1.5);
+  background: radial-gradient(circle, rgba(220,180,255,0.85) 0%, rgba(180,120,255,0.34) 35%, rgba(180,120,255,0) 65%);
+}
+
+.stone-btn--sun.pressed::after {
+  opacity: 1;
+  transform: scale(1.5);
+  background: radial-gradient(circle, rgba(255,245,140,0.9) 0%, rgba(255,220,70,0.36) 35%, rgba(255,220,70,0) 65%);
+}
+
+.stonewall-image-wrap.success {
+  animation: puzzleSuccessFlash 1.6s ease;
+}
+
+@keyframes puzzleSuccessFlash {
+  0% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  30% {
+    filter: brightness(1.9);
+    transform: scale(1.06);
+  }
+  60% {
+    filter: brightness(1.7);
+    transform: scale(1.04);
+  }
+  100% {
+    filter: brightness(1.1);
+    transform: scale(1.1);
+  }
+}
+
+/* REFERENCE IMAGE (polaroid style) */
+
+.stonewall-reference {
+  position: absolute;
+  top: 18%;
+  right: -8%;
+  width: 22%;
+  max-width: 110px;
+  border: 2px solid rgba(232, 222, 199, 0.35);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stonewall-reference-hitbox {
+  position: absolute;
+  top: 18%;
+  right: -8%;
+  width: 22%;
+  max-width: 110px;
+  aspect-ratio: 1 / 1;
+  z-index: 5;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* MODAL */
+
+.reference-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reference-modal.hidden {
+  display: none;
+}
+
+.reference-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.reference-content {
+  position: relative;
+  z-index: 2;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.reference-content img {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.return-archive-btn {
+  margin-top: 24px;
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #ddd6bf;
+  background: rgba(221, 214, 191, 0.08);
+  border: 1px solid rgba(221, 214, 191, 0.24);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.return-archive-btn:hover {
+  background: rgba(221, 214, 191, 0.16);
+  border-color: rgba(221, 214, 191, 0.42);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Wall Field Log</title>
+  <link rel="stylesheet" href="stone-wall.css" />
+</head>
+<body>
+  <main class="stonewall-app stonewall-app--prelog">
+    <section class="stonewall-shell stonewall-shell--prelog">
+      <div class="prelog-stage">
+        <div class="prelog-image-wrap">
+          <img
+            src="media/field-log.png"
+            alt="Recovered field log from Mercer"
+            class="prelog-image"
+          />
+
+          <button
+            id="prelog-audio-button"
+            class="prelog-hotspot prelog-hotspot--audio"
+            type="button"
+            aria-label="Play field log audio"
+          ></button>
+
+          <button
+            id="prelog-begin-button"
+            class="prelog-hotspot prelog-hotspot--begin"
+            type="button"
+            aria-label="Begin puzzle"
+          ></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="prelog-audio" src="media/mercer-field-log.wav" preload="auto"></audio>
+  <script src="stone-wall-prelog.js"></script>
+</body>
+</html>
