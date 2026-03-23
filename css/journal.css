@@ -1,0 +1,170 @@
+.journal-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #16110d;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.journal-artifact {
+  position: relative;
+  width: min(760px, 68vw);
+  aspect-ratio: 2 / 3;
+  background: url("../media/journal/journal-page.png") center / contain no-repeat;
+}
+
+.journal-overlay {
+  position: absolute;
+  inset: 0;
+  color: #3f2f22;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.journal-title {
+  position: absolute;
+  top: 7.2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  text-align: center;
+  font-size: clamp(13px, 1.15vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #564230;
+}
+
+.journal-subtitle {
+  position: absolute;
+  top: 10.4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.58vw, 10px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #78614c;
+}
+
+.journal-audio-controls {
+  position: absolute;
+  top: 14.2%;
+  left: 18%;
+  width: 64%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.journal-audio-button {
+  appearance: none;
+  border: 1px solid rgba(88, 68, 50, 0.45);
+  background: rgba(236, 222, 200, 0.35);
+  color: #4b3827;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.journal-audio-status {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #78614c;
+}
+
+.journal-transcript-wrap {
+  position: absolute;
+  top: 18.7%;
+  left: 18%;
+  width: 64%;
+  height: 61%;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.journal-transcript-wrap::-webkit-scrollbar {
+  width: 8px;
+}
+
+.journal-transcript-wrap::-webkit-scrollbar-thumb {
+  background: rgba(86, 66, 48, 0.25);
+}
+
+.journal-transcript {
+  font-size: clamp(10px, 0.82vw, 13px);
+  line-height: 1.55;
+  color: #3f2f22;
+}
+
+.journal-transcript p {
+  margin: 0 0 1.15em 0;
+}
+
+.journal-footer {
+  position: absolute;
+  left: 18%;
+  bottom: 8.6%;
+  width: 64%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.journal-footer-note {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(6.6px, 0.5vw, 8.5px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7d654f;
+}
+
+.journal-continue-button {
+  appearance: none;
+  border: 1px solid rgba(88, 68, 50, 0.45);
+  background: rgba(236, 222, 200, 0.28);
+  color: #4b3827;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.journal-continue-button:hover,
+.journal-audio-button:hover {
+  background: rgba(236, 222, 200, 0.45);
+}
+
+@media (max-width: 900px) {
+  .journal-artifact {
+    width: min(700px, 90vw);
+  }
+
+  .journal-title {
+    width: 76%;
+    font-size: clamp(12px, 1.5vw, 18px);
+  }
+
+  .journal-subtitle {
+    width: 68%;
+  }
+
+  .journal-audio-controls,
+  .journal-transcript-wrap,
+  .journal-footer {
+    left: 17.5%;
+    width: 65%;
+  }
+}

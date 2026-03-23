@@ -1,0 +1,217 @@
+.briefing-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1f1914;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.briefing-artifact {
+  position: relative;
+  width: min(720px, 64vw);
+  aspect-ratio: 2 / 3;
+  background: url("../media/briefing/briefing-memo.png") center / contain no-repeat;
+}
+
+.briefing-overlay {
+  position: absolute;
+  inset: 0;
+  color: #433225;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.briefing-overlay::after {
+  content: "";
+  position: absolute;
+  top: 10.7%;
+  left: 20.5%;
+  width: 63%;
+  height: 1px;
+  background: rgba(112, 87, 63, 0.34);
+}
+
+/* title */
+.briefing-title {
+  position: absolute;
+  top: 7.1%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76%;
+  text-align: center;
+  white-space: nowrap;
+  font-size: clamp(13px, 1.18vw, 21px);
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  color: #5a4635;
+}
+
+/* main letter block */
+.briefing-letter {
+  position: absolute;
+  top: 15.2%;
+  left: 18.7%;
+  width: 54%;
+  font-size: clamp(9px, 0.82vw, 13px);
+  line-height: 1.38;
+  color: #433225;
+}
+
+.briefing-letter > div {
+  margin-bottom: 1.15em;
+}
+
+.briefing-letterhead {
+  margin-bottom: 1.9em;
+}
+
+.briefing-org {
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.35em;
+}
+
+.briefing-department {
+  margin-bottom: 1.65em;
+}
+
+.briefing-meta-block {
+  margin-bottom: 1.75em;
+}
+
+.briefing-meta-block div {
+  margin-bottom: 0.16em;
+}
+
+.briefing-meta-label {
+  font-weight: 700;
+}
+
+.briefing-paragraph {
+  margin-bottom: 1.18em;
+}
+
+.briefing-emphasis-line {
+  margin: 1.35em 0;
+  text-align: left;
+  font-weight: 700;
+}
+
+.briefing-closing {
+  margin-bottom: 1.2em;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.briefing-signature {
+  margin-top: 1em;
+}
+
+.briefing-signature div {
+  margin-bottom: 0.1em;
+}
+
+/* separate audio card on lower right */
+.briefing-audio-card {
+  position: absolute;
+  right: 10.5%;
+  top: 67%;
+  width: 24%;
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(112, 87, 63, 0.4);
+  background: rgba(224, 206, 178, 0.55);
+  box-shadow:
+  0 1px 0 rgba(255, 255, 255, 0.18) inset,
+  0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.briefing-audio-kicker {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(6.8px, 0.54vw, 9px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #77624e;
+  margin-bottom: 0.55em;
+}
+
+.briefing-audio-title {
+  font-size: clamp(9px, 0.72vw, 11.5px);
+  line-height: 1.25;
+  font-weight: 700;
+  color: #5a4635;
+  margin-bottom: 0.55em;
+}
+
+.briefing-audio-meta {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(6.2px, 0.48vw, 8px);
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a634e;
+  margin-bottom: 0.9em;
+}
+
+.briefing-audio-button {
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(90, 70, 53, 0.42);
+  background: rgba(255, 248, 235, 0.22);
+  color: #4a3829;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7px, 0.56vw, 9px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+.briefing-audio-button:hover {
+  background: rgba(255, 248, 235, 0.36);
+  border-color: rgba(90, 70, 53, 0.62);
+}
+
+.briefing-audio-button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 1100px) {
+  .briefing-artifact {
+    width: min(690px, 74vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .briefing-artifact {
+    width: min(680px, 88vw);
+  }
+
+  .briefing-title {
+    width: 80%;
+    font-size: clamp(12px, 1.6vw, 18px);
+  }
+
+  .briefing-letter {
+    top: 15.5%;
+    left: 18.2%;
+    width: 55%;
+    font-size: clamp(8.5px, 0.95vw, 11.5px);
+  }
+
+  .briefing-audio-card {
+    right: 14.8%;
+    bottom: 16%;
+    width: 25%;
+  }
+
+  .briefing-overlay::after {
+    top: 10.9%;
+    left: 20.3%;
+    width: 63.5%;
+  }
+}
